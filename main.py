@@ -1,3 +1,9 @@
+######################################
+# Optimisation L3 - 2021/2022        #
+# One Pizza is all you need          #
+# main.py                            #
+######################################
+
 #Nom des fichiers à ouvrir et à traiter
 filesIN=["a_exemple.txt","b_basique.txt","c_grossier.txt","d_difficile.txt","e_elabore.txt"]
 # Boucle sur les problèmes
