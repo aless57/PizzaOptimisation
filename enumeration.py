@@ -48,10 +48,9 @@ for i in range(int(data[0])):
             else:
                 break
     next+=1
-print("Liste de tous les ingrédients :")
-print(listeIngredient)
+out="Liste de tous les ingrédients :\n"
+out+=str(listeIngredient) + "\n"
 n=0
-out=""
 # Table de vérité des aliments
 table = list(product([False, True], repeat=len(listeIngredient)))
 # Noms des aliments dans key
@@ -69,6 +68,8 @@ for t in table:
             out+=str(key[num])+" "
         num+=1
     out+="\n"
-print(out)
-
+fileout = open("enumeration.txt","w")
+fileout.write(out)
+fileout.close()
 file.close()
+print("Resultat dans enumeration.txt")
