@@ -2,13 +2,14 @@ DEMANGE Alessi & NOEL Victor - Licence 3 Informatique
 
 Projet Pizza Optimisation
 
+Pour chacun des programmes, la documentation est précise pour comprendre notre fonctionnement.
+
 SOLUTION ENUMERATION
 Pour l'affichage de toutes les solutions (toutes les recettes), il faut lancer le programme appelé "enumeration.py"
 Dans le terminal : "python3 enumeration.py <fichier.txt>" où fichier.txt correspond au problème choisi en format .txt
 Pour chaque problème, le résultat se trouve dans le fichier enumeration.txt (cela écrit automatiquement lors du lancement du programme).
 PS : pour les problèmes D et E, le nombre de solutions est gigantesque donc la mémoire se sature trop vite mais cela peut être testé
 pour les problèmes A B et C.
-
 
 
 SOLUTION OPTIMALE
