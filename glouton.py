@@ -1,11 +1,11 @@
 ######################################
 # Optimisation L3 - 2021/2022        #
 # One Pizza is all you need          #
-# main.py                            #
+# glouton.py                         #
 ######################################
 
 #Nom des fichiers à ouvrir et à traiter
-filesIN=["a_exemple.txt","b_basique.txt","c_grossier.txt","d_difficile.txt","e_elabore.txt"]
+filesIN=["basefile/a_exemple.txt","basefile/b_basique.txt","basefile/c_grossier.txt","basefile/d_difficile.txt","basefile/e_elabore.txt"]
 # Boucle sur les problèmes
 for f in filesIN:
     # list out pour la réécriture
@@ -58,8 +58,9 @@ for f in filesIN:
     listeIngredientOUT.insert(0,len(listeIngredientOUT))
     #Split du nom des ficher pour récupérer la lettre du test
     fn = f.split("_")
+    fn = fn[0].split("/")
     #Création du fichier et écriture dedans pour la solution des problèmes
-    file=open("exemple_solution_"+fn[0]+".txt",'w')
+    file=open("resGlouton/exemple_solution_"+fn[1]+".txt",'w')
     for tof in listeIngredientOUT:
         file.write(str(tof)+" ")
     file.close()

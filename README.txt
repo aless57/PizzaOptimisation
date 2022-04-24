@@ -12,6 +12,8 @@ et dans le terminal on voit l'enumeration de toutes les solutions.
 PS : pour les problèmes D et E, le nombre de solutions est gigantesque donc la mémoire se sature trop vite mais cela peut être testé
 pour les problèmes A B et C.
 
+SOLUTION GENETIQUE
+pip3 install pygad
 
 SOLUTION OPTIMALE
 Pour trouver la solution optimale à chacun des problèmes, il suffit de lancer le programme qui se nomme "main.py" sans aucun argument.

@@ -79,30 +79,25 @@ print("Liste de toutes les solutions")
 print(out)
 tabOut = out.splitlines()
 tabOut.remove('0 ')
-#-------------------------------
-
+#------------------------------- TEST du score pour chaque solution (copie de evaluation.py)
 data = []
 with open(instance_file, "r") as f:
         data = f.readlines()
 data = [l.strip().split() for l in data]
-Nclients = int(data[0][0]) # Nombre total de clients
+Nclients = int(data[0][0]) 
 data.pop(0)
-
-ingredients = dict() # nom d'un ingrédient (str) -> identifiant (entier allant de 0 à N-1)
-noms_ingredients = [] # identifiant (entier allant de 0 à N-1, indice dans la liste) -> nom de l'ingrédient (str) qui a cet identifiant
-
+ingredients = dict()
+noms_ingredients = []
 Ningredients = 0
-
-L = [set() for _ in range(Nclients)] # L[i] est la liste des ingrédients que le client i aime (Like)
-D = [set() for _ in range(Nclients)] # D[i] est la liste des ingrédients que le client i n'aime pas (Dislike)
-
+L = [set() for _ in range(Nclients)] 
+D = [set() for _ in range(Nclients)] 
 for client in range(Nclients):
-    Lc,Dc = data[2*client][1:], data[2*client+1][1:] # préférences du client
+    Lc,Dc = data[2*client][1:], data[2*client+1][1:] 
     for nom_ingr in Lc + Dc:
-        if nom_ingr not in ingredients: # nom_ingr n'est pas dans les clés du dictionnaire -> c'est un ingrédient que l'on a pas encore rencontré
-            ingredients[nom_ingr] = Ningredients # on lui attribue un numéro unique dans [0;N-1]
+        if nom_ingr not in ingredients: 
+            ingredients[nom_ingr] = Ningredients 
             noms_ingredients.append(nom_ingr)
-            Ningredients += 1 # incrémenter le compteur d'ingrédients
+            Ningredients += 1 
     L[client] = {ingredients[i] for i in Lc}
     D[client] = {ingredients[i] for i in Dc}
     
@@ -112,20 +107,21 @@ for i in tabOut:
     data_soluce = [i]
     data_soluce = data_soluce[0].split(" ")
     data_soluce.remove('')
-    n_ingredients_soluce, data_soluce = int(data_soluce[0]), data_soluce[1:] # on sépare le nombre d'ingrédient de leurs noms
-    solution_set = {ingredients[nom_ingr] for nom_ingr in data_soluce} # transformer en indices entiers
+    n_ingredients_soluce, data_soluce = int(data_soluce[0]), data_soluce[1:] 
+    solution_set = {ingredients[nom_ingr] for nom_ingr in data_soluce} 
     score = 0
     for c in range(Nclients):
         if L[c].issubset(solution_set) and len(D[c].intersection(solution_set))==0:
             score += 1  
+    #Mettre à jour la solution optimale
     if meilleureScore<score:
         solutionOptimale=str(i)
         meilleureScore=score
-#--------------------------------
-print()
+#-------------------------------- FIN du test de score
 
-fileout = open("enumeration.txt","w")
+# Ouverture et écriture de la meilleure solution dans le fichier evaluation.txt
+fileout = open("resEnumeration/enumeration.txt","w")
 fileout.write(solutionOptimale)
 fileout.close()
 file.close()
-print("Resultat dans enumeration.txt")
+print("Resultat dans enumeration.txt (meilleure solution)")
