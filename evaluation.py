@@ -66,8 +66,9 @@ except:
 if len(data_soluce)!=1:
     print("Erreur dans la solution : la solution ne tient pas sur une seule ligne")
     exit()
-
+print(data_soluce)
 data_soluce = data_soluce[0].strip().split()
+print(data_soluce)
 n_ingredients_soluce, data_soluce = int(data_soluce[0]), data_soluce[1:] # on sépare le nombre d'ingrédient de leurs noms
 
 # Vérification du nombre d'ingrédients
